@@ -12,12 +12,16 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
 
 
-const pages = ['Public polls', 'Create poll'];
+
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
+
+
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -41,14 +45,16 @@ function NavBar() {
         <AppBar position="fixed">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        Poll BD
-                    </Typography>
+                    <Link to="/">
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                        >
+                            Poll BD
+                        </Typography>
+                    </Link>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -79,31 +85,54 @@ function NavBar() {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+
+
+                            <Link to="/public" underline="none">
+                                <MenuItem key="public" onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Public Polls</Typography>
                                 </MenuItem>
-                            ))}
+                            </Link>
+                            <Link to="/create" underline="none">
+                                <MenuItem key="create" onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Create poll</Typography>
+                                </MenuItem>
+
+                            </Link>
+
+
                         </Menu>
                     </Box>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                    >
-                        LOGO
-                    </Typography>
+                    <Link to="/">
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        >
+                            LOGO
+                        </Typography>
+                    </Link>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
+                        <Link to="/public" underline="none">
                             <Button
-                                key={page}
+                                key="public"
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                Public Polls
                             </Button>
-                        ))}
+                        </Link>
+                        <Link to="/create" underline="none">
+                            <Button
+                                key="create"
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                Create Poll
+                            </Button>
+                        </Link>
+
+
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

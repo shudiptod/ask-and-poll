@@ -1,17 +1,24 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import CreatePoll from './components/CreatePoll/CreatePoll';
+import Home from './components/Home/Home';
+import PublicPolls from './components/PublicPolls/PublicPolls';
+
 import NavBar from './components/shared/NavBar/NavBar';
 function App() {
   return (
     <div>
-      <NavBar />
-      <Box sx={{ width: '100%' }} mt={15}>
-        <Typography variant="h4" sx={{ textAlign: 'center' }}>
-          Create instant, and real time polls.
-        </Typography>
-      </Box>
+
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/public" element={<PublicPolls />} />
+          <Route path="/create" element={<CreatePoll />} />
+        </Routes>
+      </BrowserRouter>
+
     </div>
   );
 }
