@@ -42,15 +42,15 @@ function NavBar() {
     };
 
     return (
-        <AppBar position="fixed">
+        <AppBar position="fixed" >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Link to="/">
+                    <Link to="/" sx={{ textDecoration: 'none' }}>
                         <Typography
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                            sx={{ mr: 2, textDecoration: 'none', display: { xs: 'none', md: 'flex' } }}
                         >
                             Poll BD
                         </Typography>
@@ -87,12 +87,12 @@ function NavBar() {
                         >
 
 
-                            <Link to="/public" underline="none">
+                            <Link to="/public" underline="none" sx={{ textDecoration: 'none' }}>
                                 <MenuItem key="public" onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">Public Polls</Typography>
                                 </MenuItem>
                             </Link>
-                            <Link to="/create" underline="none">
+                            <Link to="/create" underline="none" sx={{ textDecoration: 'none' }}>
                                 <MenuItem key="create" onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">Create poll</Typography>
                                 </MenuItem>
@@ -102,18 +102,18 @@ function NavBar() {
 
                         </Menu>
                     </Box>
-                    <Link to="/">
+                    <Link to="/" sx={{ textDecoration: 'none' }}>
                         <Typography
                             variant="h6"
                             noWrap
                             component="div"
                             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                         >
-                            LOGO
+                            Poll BD
                         </Typography>
                     </Link>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Link to="/public" underline="none">
+                        <Link to="/public" underline="none" sx={{ textDecoration: 'none' }}>
                             <Button
                                 key="public"
                                 onClick={handleCloseNavMenu}
@@ -122,7 +122,7 @@ function NavBar() {
                                 Public Polls
                             </Button>
                         </Link>
-                        <Link to="/create" underline="none">
+                        <Link to="/create" underline="none" sx={{ textDecoration: 'none' }}>
                             <Button
                                 key="create"
                                 onClick={handleCloseNavMenu}
@@ -166,7 +166,7 @@ function NavBar() {
                     </Box>
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 }
 
