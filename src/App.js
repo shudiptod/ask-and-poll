@@ -7,21 +7,24 @@ import PublicPolls from './components/PublicPolls/PublicPolls';
 
 import NavBar from './components/shared/NavBar/NavBar';
 import SinglePoll from './components/SinglePoll/SinglePoll';
+import AuthProvider from './context/AuthProvider';
 import StateProvider from './context/StateProvider';
 function App() {
   return (
     <div>
-      <StateProvider>
-        <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/public" element={<PublicPolls />} />
-            <Route path="/create" element={<CreatePoll />} />
-            <Route path="/poll/:id" element={<SinglePoll />} />
-          </Routes>
-        </BrowserRouter>
-      </StateProvider>
+      <AuthProvider>
+        <StateProvider>
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/public" element={<PublicPolls />} />
+              <Route path="/create" element={<CreatePoll />} />
+              <Route path="/poll/:id" element={<SinglePoll />} />
+            </Routes>
+          </BrowserRouter>
+        </StateProvider>
+      </AuthProvider>
     </div>
   );
 }

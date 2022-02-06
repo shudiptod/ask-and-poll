@@ -18,24 +18,17 @@ const bull = (
 
 
 export default function OutlinedCard(props) {
-
-    const card = (
-        <React.Fragment>
-            <CardContent>
-                <Typography sx={{ fontSize: 15 }} color="white" gutterBottom>
-                    {props.poll.votes} {bull} votes
-                </Typography>
-                <Typography variant="h5" component="div" sx={{ color: 'white' }}>
-                    {props.poll.question}
-                </Typography>
-            </CardContent>
-        </React.Fragment>
-    );
-
     return (
         <Box sx={{ width: '60%', margin: '5px auto' }}>
             <Card variant="outlined" sx={{ backgroundColor: 'rgb(25, 118, 210)' }} >
-                {card}
+                <CardContent>
+                    <Typography sx={{ fontSize: 15 }} color="white" gutterBottom>
+                        {props.poll.votes} {bull} votes
+                    </Typography>
+                    <Typography variant="h5" component="div" sx={{ color: 'white' }}>
+                        {props.poll.question}
+                    </Typography>
+                </CardContent>
             </Card>
         </Box >
     );
