@@ -6,9 +6,9 @@ const AuthProvider = ({ children }) => {
 
     const allContexts = useFirebase();
     return (
-        <AuthProvider.Provider value={allContexts}>
+        <AuthContext.Provider value={allContexts}>
             {children}
-        </AuthProvider.Provider>
+        </AuthContext.Provider>
     );
 };
 
